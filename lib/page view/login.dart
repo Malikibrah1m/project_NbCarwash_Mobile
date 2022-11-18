@@ -49,26 +49,35 @@ class Login extends StatelessWidget {
                     Text(
                       'Email',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         fontFamily: "Inter",
                       ),
                     ),
                     SizedBox(height: 2),
                     TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        hintText: 'Masukkan e-mail',
-                      ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          hintText: 'Masukkan e-mail',
+                          hintStyle: TextStyle(
+                              fontFamily: "Inter",
+                              fontWeight: FontWeight.w300)),
                     ),
                     SizedBox(height: 20),
-                    Text('Password'),
+                    Text(
+                      'Password',
+                      style: TextStyle(fontFamily: "Inter", fontSize: 20),
+                    ),
+                    SizedBox(height: 2),
                     TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        hintText: "Masukkkan Password",
-                      ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          hintText: "Masukkkan Password",
+                          hintStyle: TextStyle(
+                            fontFamily: "Inter",
+                            fontWeight: FontWeight.w300,
+                          )),
                     )
                   ],
                 ),
