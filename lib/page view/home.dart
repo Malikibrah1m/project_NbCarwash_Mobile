@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectcarwash/page view/transaksi.dart' as transaksi;
-import 'package:projectcarwash/page view/detailtransaksi.dart' as detail;
+import 'package:projectcarwash/page%20view/reservasi.dart' as reservasi;
+import 'package:projectcarwash/page%20view/transaksi.dart' as transaksi;
 import 'package:projectcarwash/page%20view/logout.dart';
 
 class Home extends StatefulWidget {
@@ -54,9 +54,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               fontFamily: "Inter", fontSize: 16, fontWeight: FontWeight.w500),
           controller: controller,
           tabs: [
-            new Tab(text: "Transaksi"),
+            new Tab(text: "Reservasi"),
             Tab(
-              text: "Detail Transaksi",
+              text: "Transaksi",
             )
           ],
         ),
@@ -64,8 +64,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: controller,
         children: [
+          new reservasi.Reservasi(),
           new transaksi.Transaksi(),
-          new detail.DetailTransaksi(),
         ],
       ),
     ));
