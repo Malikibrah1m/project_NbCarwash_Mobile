@@ -12,7 +12,7 @@ class Logout extends StatelessWidget {
       content: Text("Apakah anda yakin ingin logout?"),
       actions: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(shape: StadiumBorder()),
@@ -21,6 +21,7 @@ class Logout extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Login()));
                 },
                 child: Text("IYA")),
+            SizedBox(width: 30),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(shape: StadiumBorder()),
                 onPressed: () => Navigator.pop(context, 'Cancel'),
