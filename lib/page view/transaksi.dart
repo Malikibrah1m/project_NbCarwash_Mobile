@@ -10,7 +10,7 @@ class Transaksi extends StatefulWidget {
 
 class _TransaksiState extends State<Transaksi> {
   final TextEditingController _controller = new TextEditingController();
-  var items = ['Tipe pencucian 1', 'Tipe pencucian 2', 'Tipe pencucian 3'];
+  var _value = "-1";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +40,7 @@ class _TransaksiState extends State<Transaksi> {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Text(
               'Nama pelanggan',
@@ -74,6 +74,52 @@ class _TransaksiState extends State<Transaksi> {
                   hintText: 'Masukkan nomor handphone pelanggan',
                   hintStyle: TextStyle(
                       fontFamily: "Inter", fontWeight: FontWeight.w300)),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Tipe pencucian',
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: "Inter",
+              ),
+            ),
+            SizedBox(height: 5),
+            Container(
+              // padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+              child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                borderRadius: BorderRadius.circular(10),
+                value: _value,
+                items: const [
+                  DropdownMenuItem(
+                    child: Text(
+                      "Pilih tipe pencucian",
+                      style: TextStyle(
+                          fontFamily: "Inter", fontWeight: FontWeight.w300),
+                    ),
+                    value: "-1",
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Tipe pencucian 1"),
+                    value: "1",
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Tipe pencucian 2"),
+                    value: "2",
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Tipe pencucian 3"),
+                    value: "3",
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Tipe pencucian 4"),
+                    value: "4",
+                  ),
+                ],
+                onChanged: (v) {},
+              ),
             ),
             SizedBox(height: 10),
             Text(
