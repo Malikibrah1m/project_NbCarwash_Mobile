@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcarwash/page%20view/login.dart';
+import 'package:projectcarwash/page_view/login.dart';
 
 class Logout extends StatelessWidget {
   const Logout({super.key});

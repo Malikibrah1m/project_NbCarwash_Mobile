@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projectcarwash/page%20view/reservasi.dart' as reservasi;
-import 'package:projectcarwash/page%20view/transaksi.dart' as transaksi;
-import 'package:projectcarwash/page%20view/logout.dart';
+import 'package:projectcarwash/page_view/reservasi.dart' as reservasi;
+import 'package:projectcarwash/page_view/transaksi.dart' as transaksi;
+import 'package:projectcarwash/page_view/logout.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         child: Scaffold(
       backgroundColor: Color(0xff8d8ffd),
       appBar: AppBar(
-        leading: Image.asset("img/logo.png"),
+        leading: Image.asset("img/bb.png"),
         leadingWidth: 70.0,
         titleSpacing: 4,
         title: Text("NB-Carwash",

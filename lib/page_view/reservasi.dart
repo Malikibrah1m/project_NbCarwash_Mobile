@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcarwash/page%20view/startscreen.dart';
+import 'package:projectcarwash/page_view/startscreen.dart';
 
 class Reservasi extends StatefulWidget {
   const Reservasi({super.key});
