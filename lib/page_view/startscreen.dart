@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectcarwash/page%20view/login.dart';
+import 'package:projectcarwash/page_view/login.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
 class Start extends StatefulWidget {
@@ -18,16 +18,9 @@ class _StartState extends State<Start> {
           navigateRoute: Login(),
           pageRouteTransition: PageRouteTransition.Normal,
           duration: 3000,
-          imageSrc: "img/logo.png",
+          imageSrc: "img/bb.png",
           imageSize: 150,
-          text: "NB-Carwash",
-          textType: TextType.NormalText,
-          textStyle: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontFamily: "Inter"),
-          backgroundColor: Color(0xff8d8efc),
+          backgroundColor: const Color(0xff8d8efc),
         ),
       ),
     );

@@ -92,6 +92,7 @@ class _TransaksiState extends State<Transaksi> {
                         borderRadius: BorderRadius.circular(10))),
                 borderRadius: BorderRadius.circular(10),
                 value: _value,
+                onTap: () {},
                 items: const [
                   DropdownMenuItem(
                     child: Text(
