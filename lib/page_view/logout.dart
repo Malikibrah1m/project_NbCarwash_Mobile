@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectcarwash/page_view/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Logout extends StatelessWidget {
   const Logout({super.key});
@@ -16,7 +17,10 @@ class Logout extends StatelessWidget {
           children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(shape: StadiumBorder()),
-                onPressed: () {
+                onPressed: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  await prefs.clear();
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Login()));
                 },
@@ -28,16 +32,6 @@ class Logout extends StatelessWidget {
                 child: Text("TIDAK"))
           ],
         ),
-
-        // TextButton(
-        //     onPressed: () {
-        //       Navigator.pushReplacement(
-        //           context, MaterialPageRoute(builder: (context) => Login()));
-        //     },
-        //     child: Text("IYA")),
-        // TextButton(
-        //     onPressed: () => Navigator.pop(context, 'Cancel'),
-        //     child: Text("Tidak")),
       ],
     );
   }
