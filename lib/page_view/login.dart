@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectcarwash/page_view/home.dart';
 import 'package:projectcarwash/services/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -168,6 +169,11 @@ class _LoginState extends State<Login> {
                                 );
 
                                 if (res['status'] == "true") {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  await prefs.setString(
+                                      'email', res['data']['email']);
+
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
