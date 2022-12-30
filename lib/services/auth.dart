@@ -5,7 +5,7 @@ import 'package:projectcarwash/config.dart';
 
 class AuthService {
   static login({required email, required password}) async {
-    var data = await http.post(baseUrl('login'),
+    var data = await http.post(baseUrl('api/login'),
         body: json.encode({
           'email': email,
           'password': password,

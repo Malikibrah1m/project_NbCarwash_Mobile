@@ -173,6 +173,8 @@ class _LoginState extends State<Login> {
                                       await SharedPreferences.getInstance();
                                   await prefs.setString(
                                       'email', res['data']['email']);
+                                  await prefs.setString(
+                                      'token', res['data']['token']);
 
                                   Navigator.pushReplacement(
                                       context,

@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:projectcarwash/page_view/reservasi.dart' as reservasi;
 import 'package:projectcarwash/page_view/transaksi.dart' as transaksi;
 import 'package:projectcarwash/page_view/logout.dart';
+import 'package:projectcarwash/services/reservasi.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,10 +15,35 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late TabController controller;
+  List dataReservasi = [];
+  int notVerifs = 0;
 
   void initState() {
     controller = new TabController(vsync: this, length: 2);
     super.initState();
+    getData();
+  }
+
+  getData() {
+    Timer.periodic(Duration(seconds: 1), (timer) async {
+      var res = await ReservasiService.get();
+
+      setState(() {
+        notVerifs = 0;
+      });
+
+      res['data'].forEach((item) {
+        if (item['is_valid'] == "false") {
+          setState(() {
+            notVerifs += 1;
+          });
+        }
+      });
+
+      setState(() {
+        dataReservasi = res['data'];
+      });
+    });
   }
 
   @override
@@ -54,7 +82,32 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               fontFamily: "Inter", fontSize: 16, fontWeight: FontWeight.w500),
           controller: controller,
           tabs: [
-            new Tab(text: "Reservasi"),
+            new Tab(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Reservasi'),
+                  SizedBox(width: 8),
+                  Container(
+                    height: 25,
+                    width: 25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: Center(
+                      child: Text(
+                        notVerifs.toString(),
+                        style: TextStyle(
+                          color: Color(0xff8d8ffd),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
             Tab(
               text: "Transaksi",
             )
@@ -64,7 +117,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: controller,
         children: [
-          new reservasi.Reservasi(),
+          new reservasi.Reservasi(
+            data: dataReservasi,
+          ),
           new transaksi.Transaksi(),
         ],
       ),
